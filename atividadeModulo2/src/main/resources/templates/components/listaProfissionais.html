@@ -1,0 +1,25 @@
+<table>
+  <caption style="margin-top: 30px;" th:text="#{admin.listaProfissionais}"></caption>
+  <tr>
+    <th>ID</th>
+    <th th:text="#{cadastro.nome}"></th>
+    <th th:text="#{cadastro.cnpj}"></th>
+    <th th:text="#{cadastro.email}"></th>
+    <th th:text="#{cadastro.area}"></th>
+    <th th:text="#{cadastro.especialidade}"></th>
+    <th th:text="#{cadastro.curriculo}"></th>
+  </tr>
+    <tr th:each=" profissional : ${listaProfissionais}">
+      <td th:text="${profissional.id}"></td>
+      <td th:text="${profissional.nome}"></td>
+      <td th:text="${profissional.cpf}"></td>
+      <td th:text="${profissional.email}"></td>
+      <td th:text="${profissional.area}"></td>
+      <td th:text="${profissional.especialidade}"></td>
+      <td><a class="botao-acao" th:href="@{{url} (url=${profissional.curriculo}) }" th:text="#{cadastro.curriculo}"></a></td>
+      <div sec:authorize="hasRole('ROLE_cliente')">
+        <td><a class="botao-acao" th:href="@{/consultas/agendar/{id_profissional} (id_profissional =${profissional.id})}" th:text="#{consulta.agendar}"></a></td>
+      </div>
+    </tr>
+  </c:forEach>
+</table>

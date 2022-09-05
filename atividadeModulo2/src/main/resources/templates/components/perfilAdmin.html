@@ -1,0 +1,74 @@
+<main>
+    <div class="texto-inicio">
+        <h1>
+          <span th:text="#{perfil.saudacao}"></span>
+          <span th:text="${#authorization.getAuthentication().getPrincipal().getUsuario().getNome()}"></span>
+          <span th:text="#{perfil.admin}"></span>
+        </h1>
+				<div class="botoes">
+					<a class="botao-add" th:href="@{/cadastro/cliente}" th:text="#{cadastro.cliente}"></a>
+					<a class="botao-add" th:href="@{/cadastro/profissional}" th:text="#{cadastro.profissional}"></a>
+				</div>
+    </div>
+
+    <div>
+		<table>
+			<caption th:text="#{admin.listaClientes}"></caption>
+			<tr>
+				<th>ID</th>
+				<th th:text="#{cadastro.nome}"></th>
+				<th th:text="#{cadastro.cpf}"></th>
+				<th th:text="#{cadastro.email}"></th>
+				<th th:text="#{cadastro.sexo}"></th>
+				<th th:text="#{cadastro.telefone}"></th>
+				<th th:text="#{cadastro.nascimento}"></th>
+				<th th:text="#{admin.editar}"></th>
+				<th th:text="#{admin.remover}"></th>
+
+			</tr>
+
+				<tr th:each=" Cliente : ${listaCliente}">
+					<td th:text="${Cliente.id}"></td>
+					<td th:text="${Cliente.nome}"></td>
+					<td th:text="${Cliente.cpf}"></td>
+					<td th:text="${Cliente.email}"></td>
+					<td th:text="${Cliente.sexo}"></td>
+					<td th:text="${Cliente.telefone}"></td>
+                    <td th:text="${#calendars.format(Cliente.dataNascimento, 'dd/MM/yyyy')}"></td>
+					<td><a class="botao-acao" th:href="@{/cliente/editar/{id} (id=${Cliente.id}) }" th:text="#{admin.editar}"></a></td>
+					<td><a class="botao-acao" th:href="@{/cliente/delete/{id} (id=${Cliente.id}) }"
+						onclick="return confirm('Tem certeza de que deseja excluir este usuário? todas as compras deste usuário serão excluidas');" th:text="#{admin.remover}"></a></td>
+			    </tr>
+		</table>
+	</div>
+    <div>
+      <table>
+			<caption style="margin-top: 30px;" th:text="#{admin.listaProfissionais}"></caption>
+			<tr>
+				<th>ID</th>
+        <th th:text="#{cadastro.nome}"></th>
+				<th th:text="#{cadastro.cnpj}"></th>
+				<th th:text="#{cadastro.email}"></th>
+				<th th:text="#{cadastro.area}"></th>
+				<th th:text="#{cadastro.especialidade}"></th>
+				<th th:text="#{cadastro.curriculo}"></th>
+				<th th:text="#{admin.editar}"></th>
+				<th th:text="#{admin.remover}"></th>
+			</tr>
+
+				<tr th:each=" Profissional : ${listaProfissional}">
+          <td th:text="${Profissional.id}"></td>
+					<td th:text="${Profissional.nome}"></td>
+					<td th:text="${Profissional.cpf}"></td>
+					<td th:text="${Profissional.email}"></td>
+					<td th:text="${Profissional.area}"></td>
+					<td th:text="${Profissional.especialidade}"></td>
+					<td><a class="botao-acao" th:href="@{{url} (url=${Profissional.curriculo}) }" th:text="#{cadastro.curriculo}"></a></td>
+          <td><a class="botao-acao" th:href="@{/profissional/editar/{id} (id=${Profissional.id}) }" th:text="#{admin.editar}"></a></td>
+          <td><a class="botao-acao" th:href="@{/profissional/delete/{id} (id=${Profissional.id}) }"
+						onclick="return confirm('Tem certeza de que deseja excluir este profissional? Todas as consultas realacionadas a este serão excluidos');"  th:text="#{admin.remover}"></a></td>
+			    </tr>
+			</c:forEach>
+		</table>
+	</div>
+</main>
