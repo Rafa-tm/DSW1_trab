@@ -1,0 +1,126 @@
+@import url("./components/navbar.css");
+@import url("./components/perfil-admin.css");
+
+body{
+	background-color: #D0DDED;
+    margin: 0 !important;
+}
+
+.home-container {
+    padding-bottom: 80px;
+}
+
+.container-conteudo{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.doctor-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin: 5%;
+}
+
+.filtro_listagem{
+    margin-top: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filtro input {
+    font-size: 1rem;
+    padding: .2rem;
+}
+
+.doctor{
+    width: 100%;
+}
+
+.doctor-container p {
+	font-size: 1.5rem;
+    font-weight: 800;
+
+}
+
+.botao-voltar{
+    font-size: 1.4rem;
+    background-color: #0e0b27;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
+    border-style: none;
+    text-decoration: none !important;
+    
+}
+
+.botao-voltar p{
+    margin: 0rem !important;
+}
+
+.botao-voltar:hover {
+    opacity: 0.8;
+}
+
+.login-container{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    justify-content: space-around;
+}
+
+.form-login {
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+}
+
+.form-login h1 {
+    font-size: 2rem !important;
+    font-weight: bolder !important;
+    color: black;
+}
+
+.form-login input[type="text"], input[type="password"] {
+    margin: 1rem 0rem;
+    padding: .5rem;
+    font-size: 1.2rem !important;
+    width: 80%;
+    color: black;
+}
+
+.form-login input[type="submit"]{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #0e0b27;
+    padding: 0.5rem 1.5rem;
+    margin: 0.5rem 0rem;
+    color: white;
+    border-radius: 1rem;
+    border-style: none;
+}
+
+.form-login input[type="submit"]:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.form-erro{
+    padding: 1.5rem 0rem;
+    font-size: 1.2rem;
+    background-color: #F4D6D2;
+}

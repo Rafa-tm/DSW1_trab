@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | LifeCare</title>
+    <link rel="stylesheet" th:href="@{/styles/home.css}" />
+  </head>
+  <body>
+    <div class="home-container box">
+      <div th:insert="components/navbar.html"></div>
+      <main>
+        <div class="container-conteudo">
+          <div class="doctor-container">
+            <p th:text="#{index.text}">teste</p>
+            <img class="doctor" th:src="@{/image/doctor.jpg}" />
+          </div>
+          <div class="filtro_listagem">
+            <form id="form" class="filtro" th:action="@{/}" method="GET">
+              <input
+                type="text"
+                class="campo"
+                name="area"
+                th:placeholder="#{index.area}"
+                th:value="*{area}"
+              />
+              <input
+                type="text"
+                class="campo"
+                name="especialidade"
+                th:placeholder="#{index.especialidade}"
+                th:value="*{especialidade}"
+              />
+              <input
+                type="submit"
+                id="submit"
+                class="botao-filtrar"
+                th:value="#{index.filtro}"
+              />
+            </form>
+            <div th:insert="components/listaProfissionais.html"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

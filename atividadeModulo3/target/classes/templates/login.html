@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="#{login.title}">LifeCare</title>
+    <link rel="stylesheet" th:href="@{styles/home.css}" />
+    <!-- script para get usuario logado-->
+  </head>
+  <body>
+    <nav class="navbar-container">
+      <a class="titulo_site" th:href="@{/}"><h3>LifeCare</h3></a>
+      <a class="botao-voltar" href="javascript:history.go(-1)">
+        <p th:text="#{cadastro.voltar}"></p
+      ></a>
+    </nav>
+    <div class="login-container box">
+      <form class="form-login" th:action="@{/login}" method="POST">
+        <h1 th:text="#{login.title}"></h1>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="campo"
+          th:placeholder="#{login.email}"
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="campo"
+          th:placeholder="#{login.senha}"
+        />
+        <input
+          type="submit"
+          id="login-submit"
+          name="login-submit"
+          th:value="#{login.botao}"
+        />
+        <div th:if="${param.error}">
+          <div class="form-erro">
+            <span th:text="#{login.error}"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

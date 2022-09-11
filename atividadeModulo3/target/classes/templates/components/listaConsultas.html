@@ -1,0 +1,21 @@
+<table>
+  <caption style="margin-top: 1rem;" th:text="#{consulta.lista}"></caption>
+  <tr>
+    <th>ID</th>
+    <th th:text="#{consulta.profissional}"></th>
+    <th th:text="#{consulta.paciente}"></th>
+    <th th:text="#{consulta.data}"></th>
+    <th th:text="#{consulta.estado}"></th>
+    <th th:text="#{consulta.cancelar}"></th>
+  </tr>
+    <tr th:each="consulta : ${listaConsultas}">
+      <td th:text="${consulta.id}"></td> 
+      <td th:text="${consulta.profissional.nome}"></td>
+      <td th:text="${consulta.cliente.nome}"></td>
+      <td th:text="${consulta.dataConsulta}"></td>
+      <td th:text="${consulta.estado}"></td>
+      <td><a class="botao-acao" th:href="@{/consultas/cancelar/{id} (id=${consulta.id}) }" th:text="#{consulta.cancelar}"
+        onclick="return confirm('Tem certeza de que deseja cancelar a consulta?');"></a></td>
+      </tr>
+  </c:forEach>
+</table>

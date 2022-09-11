@@ -1,0 +1,26 @@
+<nav class="navbar-container">
+  <a class="titulo_site" th:href="@{/}"><h3>LifeCare</h3></a>
+  <div class="right-side" sec:authorize="isAuthenticated()">
+    <a th:href="@{/perfil}" class="botao-logado">
+      <p
+        th:text="${#authorization.getAuthentication().getPrincipal().getUsuario().getNome()}"
+      >
+        Nome
+      </p>
+    </a>
+    <a href="javascript: document.logoutForm.submit()" class="botao-logado">
+      <p th:text="#{nav.sair}"></p>
+    </a>
+    <form
+      name="logoutForm"
+      th:action="@{/logout}"
+      method="post"
+      th:hidden="true"
+    >
+      <input hidden type="submit" value="Sign Out" />
+    </form>
+  </div>
+  <div class="right-side" sec:authorize="!isAuthenticated()">
+    <a th:href="@{/login}" class="botao-login" th:text="#{nav.login}"></a>
+  </div>
+</nav>

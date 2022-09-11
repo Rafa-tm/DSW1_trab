@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{cadastro.title}"> LifeCare</title>
+    <link rel="stylesheet" th:href="@{/styles/cadastro-cliente.css}" />
+<body>
+    <nav class="navbar-container">
+        <a class="titulo_site" th:href="@{/}"><h3>LifeCare</h3></a>
+        <a class="botao-voltar" href="javascript:history.go(-1)">
+          <p th:text="#{cadastro.voltar}"></p
+        ></a>
+    </nav>
+    <div class="cadastro-cliente-container">
+        <h1 th:text="*{profissional.nome}"></h1>
+        <h1 th:text="*{profissional.getId()}"></h1>
+        <h1 th:text="*{cliente.nome}"></h1>
+
+        <form class="form-cadastro-cliente" th:action="@{/consultas/salvar}" th:object="${consulta}" method="POST" >
+            <h1 th:text="#{consulta.agendar}"></h1>
+
+            <label for="dataConsulta" th:text="#{consulta.data}"></label>
+            <input class="campo" id="dataConsulta" name="dataConsulta" type="datetime-local" th:field="*{dataConsulta}"/>
+
+            <div class="field-erro">
+                <span th:errors="*{dataConsulta}"></span>
+            </div>
+
+            <input class="botao" type="submit" name="bOK" th:value="#{consulta.agendar}" />
+
+            <input type="hidden" name="id"  th:field="*{id}"/>
+            <input type="hidden" name="profissional"  th:field="*{profissional}"/>
+            <input type="hidden" name="cliente"  th:field="*{cliente}"/>
+
+            <input type="hidden" name="id_profissional"  th:value="${profissional.getId()}"/>
+                
+                
+        </form>
+        </div>
+    </body>
+</html>

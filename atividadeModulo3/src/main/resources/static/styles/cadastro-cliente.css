@@ -1,0 +1,65 @@
+@import url("./home.css");
+
+.cadastro-cliente-container {
+    position: relative;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-cadastro-cliente {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-cadastro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-cadastro-cliente h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center !important;
+    color: black;
+}
+
+.form-cadastro-cliente label {
+    font-size: 1.2rem;
+}
+
+.campo{
+    margin: 0 !important;
+    padding: .5rem !important;
+    font-size: 1.2rem !important;
+    width: 80%;
+    color: black;
+}
+
+.botao {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #0e0b27;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
+    border-style: none;
+    text-decoration: none !important;
+}
+
+.form-cadastro-cliente .submit:hover {
+    opacity: 0.8;
+}
+
+.field-erro{
+    margin-bottom: .3rem;
+    color: red;
+    width: 100%;
+}
