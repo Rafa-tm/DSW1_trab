@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable().authorizeRequests()
 
 				// Controladores REST
-				.antMatchers("/clientes", "/profissionais", "consultas").permitAll()
+				.antMatchers("/clientes", "/profissionais", "/consultas").permitAll()
 				.antMatchers("/clientes/{\\d+}", "/profissionais/{\\d+}").permitAll()
 				.antMatchers("/consultas/{\\d+}").permitAll()
 				.antMatchers("/profissionais/especialidade/{\\w+}").permitAll()

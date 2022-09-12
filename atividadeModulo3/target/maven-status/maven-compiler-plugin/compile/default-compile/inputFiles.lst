@@ -17,6 +17,7 @@
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/config/MvcConfig.java
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/controller/ConsultaController.java
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/service/impl/ClienteService.java
+/home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/controller/ConsultaRestController.java
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/domain/Consulta.java
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/domain/Profissional.java
 /home/rafael/Documentos/DEVWEB/DSW1_trab/atividadeModulo3/src/main/java/br/ufscar/dc/dsw/LifeCare/service/spec/IConsultaService.java
