@@ -41,12 +41,16 @@ public class ProfissionalService implements IProfissionalService {
 		dao.deleteById(id);
 	}
 
-	@Override
+	public List<Profissional> buscarPorEspecialidade(String especialidade) {
+		return dao.findAllByEspecialidade(especialidade);
+	}
+
 	public List<Profissional> buscarPorFiltro(String area, String especialidade) {
 
 		List<Profissional> listaProfissinalTodos = dao.findAll();
 
-		if ((area == null || area.isEmpty()) && (especialidade == null || especialidade.isEmpty())) {
+		if ((area == null || area.isEmpty()) && (especialidade == null ||
+				especialidade.isEmpty())) {
 			return dao.findAll();
 		}
 
@@ -64,12 +68,15 @@ public class ProfissionalService implements IProfissionalService {
 		}
 
 		for (Profissional profissional : listaProfissinalTodos) {
-			if ((listaProfissionalPelaArea == null || listaProfissionalPelaArea.contains(profissional)) &&
-					(listaProfissionalPelaEspecialidade == null || listaProfissionalPelaEspecialidade.contains(profissional))) {
+			if ((listaProfissionalPelaArea == null ||
+					listaProfissionalPelaArea.contains(profissional)) &&
+					(listaProfissionalPelaEspecialidade == null ||
+							listaProfissionalPelaEspecialidade.contains(profissional))) {
 
 				listaProfissional.add(profissional);
 			}
 		}
 		return listaProfissional;
 	}
+
 }

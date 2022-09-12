@@ -14,7 +14,6 @@
     </nav>
     <div class="cadastro-cliente-container">
         <h1 th:text="*{profissional.nome}"></h1>
-        <h1 th:text="*{profissional.getId()}"></h1>
         <h1 th:text="*{cliente.nome}"></h1>
 
         <form class="form-cadastro-cliente" th:action="@{/consultas/salvar}" th:object="${consulta}" method="POST" >

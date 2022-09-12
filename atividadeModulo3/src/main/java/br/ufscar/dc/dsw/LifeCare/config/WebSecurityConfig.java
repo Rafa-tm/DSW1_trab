@@ -40,27 +40,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.antMatchers("/", "/error", "/login/**", "/index", "/styles/**", "/image/**", "/webjars/**", "/upload/**")
+		http.csrf().disable().authorizeRequests()
+
+				// Controladores REST
+				.antMatchers("/clientes", "/profissionais", "consultas").permitAll()
+				.antMatchers("/clientes/{\\d+}", "/profissionais/{\\d+}").permitAll()
+				.antMatchers("/consultas/{\\d+}").permitAll()
+				.antMatchers("/profissionais/especialidade/{\\w+}").permitAll()
+				.antMatchers("/consultas/clientes/{\\d+}").permitAll()
+				.antMatchers("/consultas/profissionais/{\\d+}").permitAll()
+
+				.antMatchers("/", "/error", "/login/**", "/index", "/styles/**", "/image/**",
+						"/webjars/**", "/upload/**")
 				.permitAll()
-				.antMatchers("/cliente/salvar", "/profissional/salvar", "/consulta/salvar", "/consulta/cancelar/**", "/perfil")
+				.antMatchers("/cliente/salvar", "/profissional/salvar", "/consulta/salvar",
+						"/consulta/cancelar/**", "/perfil")
 				.permitAll()
 				.antMatchers("/consulta/agendar/**").hasRole("cliente")
 				.antMatchers("/consulta/adicionar").hasRole("profissional")
-				.antMatchers("/admin/**", "/profissional/delete/**", "/cliente/delete/**", "/cadastro/**")
+				.antMatchers("/admin/**", "/profissional/delete/**", "/cliente/delete/**",
+						"/cadastro/**")
 				.hasRole("admin")
 				.antMatchers("/profissional/editar", "/cliente/editar").hasRole("admin")
+
 				.anyRequest().authenticated()
 				.and()
-				.formLogin()
-				.loginPage("/login")
-				.defaultSuccessUrl("/", true)
-				.permitAll()
+				.formLogin().loginPage("/login").permitAll()
 				.and()
-				.logout()
-				.logoutUrl("/logout")
-				.logoutSuccessUrl("/")
-				.permitAll();
+				.logout().logoutUrl("/logout").permitAll();
 	}
 
 }

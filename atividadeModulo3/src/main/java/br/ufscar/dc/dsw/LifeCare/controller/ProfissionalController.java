@@ -1,6 +1,5 @@
 package br.ufscar.dc.dsw.LifeCare.controller;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -63,8 +62,8 @@ public class ProfissionalController {
             return "cadastroProfissional";
         }
 
-        String curriculoDir = addFile(curriculo);
-        profissional.setCurriculo(curriculoDir);
+        // String curriculoDir = addFile(curriculo);
+        profissional.setCurriculo(curriculo.getBytes());
 
         profissional.setSenha(encoder.encode(profissional.getSenha()));
         profissional.setTipo("ROLE_profissional");
@@ -72,22 +71,6 @@ public class ProfissionalController {
         service.salvar(profissional);
 
         return "redirect:/perfil";
-    }
-
-    private String addFile(MultipartFile file) throws IOException {
-        String fileName = file.getOriginalFilename().split("\\.")[0] + "."
-                + file.getOriginalFilename().split("\\.")[1];
-
-        String uploadPath = context.getRealPath("") + File.separator + "upload";
-        File uploadDir = new File(uploadPath);
-
-        if (!uploadDir.exists()) {
-            uploadDir.mkdir();
-        }
-
-        file.transferTo(new File(uploadDir, fileName));
-
-        return File.separator + "upload" + File.separator + fileName;
     }
 
     @GetMapping("/delete/{id}")

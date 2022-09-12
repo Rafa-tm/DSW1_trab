@@ -2,6 +2,7 @@ package br.ufscar.dc.dsw.LifeCare.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -23,9 +24,8 @@ public class Profissional extends Usuario {
 	@Column(name = "especialidade", nullable = false, length = 60)
 	private String especialidade;
 
-	@Size(max = 100)
-	@Column(name = "curriculo", nullable = false, length = 100)
-	private String curriculo;
+	@Lob
+	private byte[] curriculo;
 
 	public String getArea() {
 		return area;
@@ -43,11 +43,11 @@ public class Profissional extends Usuario {
 		this.especialidade = especialidade;
 	}
 
-	public String getCurriculo() {
+	public byte[] getCurriculo() {
 		return curriculo;
 	}
 
-	public void setCurriculo(String curriculo) {
+	public void setCurriculo(byte[] curriculo) {
 		this.curriculo = curriculo;
 	}
 
