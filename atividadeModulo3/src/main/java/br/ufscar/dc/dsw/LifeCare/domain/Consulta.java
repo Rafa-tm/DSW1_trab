@@ -8,6 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @SuppressWarnings("serial")
 @Entity
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Consulta extends AbstractEntity<Long> {
 
-	@JsonBackReference
+	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
