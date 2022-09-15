@@ -1,28 +1,31 @@
 package br.ufscar.dc.dsw.LifeCare.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 @SuppressWarnings("serial")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Long.class)
 @Entity
 @Table(name = "Consulta")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Consulta extends AbstractEntity<Long> {
 
-	@JsonManagedReference
 	@ManyToOne
+	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
 
 	@ManyToOne
 	@JoinColumn(name = "idProfissional")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Profissional profissional;
 
 	@Column(name = "dataConsulta", nullable = false, length = 40)

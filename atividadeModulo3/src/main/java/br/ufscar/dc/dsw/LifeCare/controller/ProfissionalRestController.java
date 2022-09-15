@@ -89,7 +89,6 @@ public class ProfissionalRestController {
   }
 
   // Retorna a lista de todos os profissionais de especialidade cujo nome = {nome}
-  // NÃO FUNCIONA
   @GetMapping(path = "/profissionais/especialidade/{nome}")
   public ResponseEntity<List<Profissional>> encontraPorEspecialidade(@PathVariable("nome") String nome) {
 

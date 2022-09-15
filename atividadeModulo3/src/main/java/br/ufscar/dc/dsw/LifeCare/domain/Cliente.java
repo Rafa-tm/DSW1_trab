@@ -1,16 +1,12 @@
 package br.ufscar.dc.dsw.LifeCare.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -28,10 +24,9 @@ public class Cliente extends Usuario {
     private String sexo;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Past()
     @NotNull(message = "{NotBlank.cliente.dataNacminto}")
     @Column(name = "dataNascimento", nullable = false)
-    private Date dataNascimento;
+    private String dataNascimento;
 
     public String getTelefone() {
         return telefone;
@@ -49,11 +44,11 @@ public class Cliente extends Usuario {
         this.sexo = sexo;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

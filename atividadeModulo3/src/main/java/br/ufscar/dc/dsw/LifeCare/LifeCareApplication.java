@@ -37,7 +37,6 @@ public class LifeCareApplication {
 			}
 
 			Cliente cliente = clienteDAO.findByEmail("rafael@email.com");
-			Date data = new Date();
 
 			if (cliente == null) {
 				cliente = new Cliente();
@@ -48,12 +47,11 @@ public class LifeCareApplication {
 				cliente.setTipo("ROLE_cliente");
 				cliente.setSexo("masculino");
 				cliente.setTelefone("1234567891");
-				cliente.setDataNascimento(data);
+				cliente.setDataNascimento("2000-12-12");
 				clienteDAO.save(cliente);
 			}
 
 			Cliente cliente2 = clienteDAO.findByEmail("paulo@email.com");
-			Date data2 = new Date();
 
 			if (cliente2 == null) {
 				cliente2 = new Cliente();
@@ -64,7 +62,7 @@ public class LifeCareApplication {
 				cliente2.setTipo("ROLE_cliente");
 				cliente2.setSexo("masculino");
 				cliente2.setTelefone("1234567891");
-				cliente2.setDataNascimento(data2);
+				cliente2.setDataNascimento("2000-08-31");
 				clienteDAO.save(cliente2);
 			}
 
@@ -87,7 +85,7 @@ public class LifeCareApplication {
 
 			if (profissional2 == null) {
 				profissional2 = new Profissional();
-				profissional2.setNome("Pedro");
+				profissional2.setNome("Joao");
 				profissional2.setSenha(encoder.encode("1234"));
 				profissional2.setEmail("joao@email.com");
 				profissional2.setCpf("47694784800");
