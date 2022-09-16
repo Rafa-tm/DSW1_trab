@@ -140,7 +140,7 @@ public class LifeCareApplication {
 				profissional5.setCurriculo(null);
 				profDAO.save(profissional5);
 			}
-
+         /*
 			Consulta consulta1 = new Consulta();
 			cliente = clienteDAO.findByEmail("rafael@email.com");
 			profissional = profDAO.findByEmail("pedro@email.com");
@@ -176,7 +176,7 @@ public class LifeCareApplication {
 			consulta4.setEstado("MARCADA");
 			consulta4.setDataConsulta("2022-09-30T17:25");
 			consultaDAO.save(consulta4);
-
+*/
 		};
 	}
 }

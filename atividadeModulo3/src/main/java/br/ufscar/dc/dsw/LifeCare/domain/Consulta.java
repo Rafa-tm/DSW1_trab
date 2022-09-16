@@ -12,20 +12,17 @@ import javax.persistence.InheritanceType;
 import com.fasterxml.jackson.annotation.*;
 
 @SuppressWarnings("serial")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Long.class)
 @Entity
 @Table(name = "Consulta")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Consulta extends AbstractEntity<Long> {
 
 	@ManyToOne
-	@JsonIdentityReference(alwaysAsId = true)
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
 
 	@ManyToOne
 	@JoinColumn(name = "idProfissional")
-	@JsonIdentityReference(alwaysAsId = true)
 	private Profissional profissional;
 
 	@Column(name = "dataConsulta", nullable = false, length = 40)
