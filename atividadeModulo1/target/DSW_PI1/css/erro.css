@@ -1,0 +1,41 @@
+body {
+  margin: 0 !important;
+
+  background-color: #6e2b2b;
+
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.corpo{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.container {
+  align-items: center;
+  background-color: #fefefe;
+  color: black !important;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 45%;
+  height: 40vh;
+  border-radius: 1rem;
+}
+
+.erro{
+  font-size: larger;
+}
+
+.botao-retorno{
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #720a0a;
+  padding: 1rem;
+  color: white;
+  border-radius: 1rem;
+  border-style: none;
+}
