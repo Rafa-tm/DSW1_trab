@@ -107,7 +107,7 @@ public class ProfissionalDAO extends GenericDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
-		} else {
+		} else if(filtroarea != null && filtroarea.isEmpty() == false){
 			String sql = "SELECT * from Profissional WHERE area = ?";
 			try {
 				Connection conn = this.getConnection();
@@ -137,6 +137,8 @@ public class ProfissionalDAO extends GenericDAO {
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}
+		}else{
+			listaProfissionalFiltro = getAll();
 		}
 
 		return listaProfissionalFiltro;

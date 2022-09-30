@@ -165,9 +165,22 @@ public class ProfissionalController extends HttpServlet {
 
 	private void listaProfissionais(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+				List<Profissional> listaProfissionais = dao.getAll();
 
-		List<Profissional> listaProfissionais = dao.getAll();
+				String filtroArea = request.getParameter("filtroArea");
+				String filtroEspec = request.getParameter("filtroEspec");
+
+				if(filtroArea != null || filtroEspec != null){
+					if( filtroEspec == null || filtroEspec.isEmpty()){
+						listaProfissionais = dao.getAllbyFiltro(filtroArea, null);
+					}else{
+						listaProfissionais = dao.getAllbyFiltro(filtroArea, filtroEspec);
+					}
+				}
+
 		request.setAttribute("listaProfissionais", listaProfissionais);
+		request.setAttribute("filtroArea", filtroArea);
+		request.setAttribute("filtroEspec", filtroEspec);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/logado/profissional/lista.jsp");
 		dispatcher.forward(request, response);
 	}

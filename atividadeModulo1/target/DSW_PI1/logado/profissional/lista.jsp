@@ -27,7 +27,26 @@
               <a class="cabecalho__link" href="/<%=contextPath%>/perfil.jsp">Perfil</a>
             </c:if>
           </header>
-          <div class="corpo">
+          <div class="corpo-prof">
+            <form id="form" class="filtro" th:action="listar" method="post">
+              <label for="filtroArea">Filtrar:</label>
+              <input
+                type="text"
+                class="campo"
+                name="filtroArea"
+              />
+              <input
+                type="text"
+                class="campo"
+                name="filtroEspec"
+              />
+              <input
+                type="submit"
+                id="submit"
+                class="botao-primario"
+                name="botaoFiltro"
+              />
+            </form>
             <section class="conteudo_tabelas">
               <table>
                 <tr>
